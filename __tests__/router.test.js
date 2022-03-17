@@ -59,7 +59,7 @@ describe('Auth Router', () => {
 
         const token = response.body.token;
         const bearerResponse = await mockRequest
-          .get('/user')
+          .get('/secret')
           .set('Authorization', `Bearer ${token}`)
 
 
@@ -94,7 +94,7 @@ describe('Auth Router', () => {
       it('bearer fails with an invalid token', async () => {
 
         const bearerResponse = await mockRequest
-          .get('/user')
+          .get('/secret')
           .set('Authorization', `Bearer foobar`)
 
         expect(bearerResponse.status).toBe(403);
