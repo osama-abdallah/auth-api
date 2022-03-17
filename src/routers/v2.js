@@ -41,7 +41,7 @@ router.put("/:model/:id", bearerMid, acl("update"), async (req, res) => {
 
   let renewedModels = await req.model.dataUpdated(id,body)
     
-  res.status(200).send(renewedModels);
+  res.status(200).send(await req.model.getData(id));
 });
 
 router.delete("/:model/:id", bearerMid, acl("delete"), async (req, res) => {
@@ -49,7 +49,7 @@ router.delete("/:model/:id", bearerMid, acl("delete"), async (req, res) => {
 
   await req.model.dataDeleted(id)
 
-  res.status(200).send("removedModels");
+  res.status(200).send(`removed${req.params.model}`);
 });
 
 module.exports = router;

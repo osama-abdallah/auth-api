@@ -16,10 +16,11 @@ const Users = sequelize.define('user', {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },role: {
       type: DataTypes.ENUM('admin', 'writer', 'editor', 'user'),
       defaultValue: 'user',
+      allowNull: false
   },
   token: {
       type: DataTypes.VIRTUAL
