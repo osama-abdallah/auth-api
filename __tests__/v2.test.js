@@ -32,7 +32,7 @@ describe('testing v2',()=>{
 
       const token = response.body.token;
       let bearerResponse = await mockRequest
-        .get('/user')
+        .get('/secret')
         .set('Authorization', `Bearer ${token}`)
         
       expect(bearerResponse.status).toBe(200);
@@ -67,7 +67,7 @@ describe('testing v2',()=>{
 
       const token = response.body.token;
       let bearerResponse = await mockRequest
-        .get('/user')
+        .get('/secret')
         .set('Authorization', `Bearer ${token}`)
         
       expect(bearerResponse.status).toBe(200);
