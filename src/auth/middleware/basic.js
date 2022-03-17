@@ -16,7 +16,7 @@ try {
     req.user = validUser
     next()
 } catch (error) {
-    res.status(403).send(error)
+    res.status(403).send('Invalid Username or Password')
 }
     }else{
         next('Not Autherised')
